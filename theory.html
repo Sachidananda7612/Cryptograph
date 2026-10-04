@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='18' height='11' x='3' y='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theory — RSA Asymmetric Cryptography Virtual Laboratory</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="aim.html" class="logo-brand">
+        <div class="logo-icon">
+          <i data-lucide="shield-check" style="color: #fff; width: 22px; height: 22px;"></i>
+        </div>
+        <div>
+          <div class="logo-title">CRYPTOLAB</div>
+        </div>
+        <span class="badge-tag">RSA ASYMMETRIC LAB</span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="simulation.html" class="btn btn-primary btn-sm">
+          <i data-lucide="play" style="width: 14px;"></i> Launch Simulator
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Virtual Lab Layout -->
+  <div class="vlab-layout-wrapper">
+    <!-- Left Sidebar -->
+    <aside class="vlab-sidebar">
+      <div class="vlab-sidebar-title">Virtual Lab Sections</div>
+      <ul class="vlab-sidebar-menu">
+        <li>
+          <a href="aim.html" class="vlab-sidebar-link">
+            <i data-lucide="target" style="width: 18px;"></i> Aim
+          </a>
+        </li>
+        <li>
+          <a href="theory.html" class="vlab-sidebar-link active">
+            <i data-lucide="book-open" style="width: 18px;"></i> Theory
+          </a>
+        </li>
+        <li>
+          <a href="objective.html" class="vlab-sidebar-link">
+            <i data-lucide="compass" style="width: 18px;"></i> Objective
+          </a>
+        </li>
+        <li>
+          <a href="procedure.html" class="vlab-sidebar-link">
+            <i data-lucide="list-ordered" style="width: 18px;"></i> Procedure
+          </a>
+        </li>
+        <li>
+          <a href="simulation.html" class="vlab-sidebar-link">
+            <i data-lucide="play-circle" style="width: 18px;"></i> Simulation
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="vlab-main-content">
+      <div class="hero-pill" style="margin-bottom: 1.5rem;">
+        <span class="pulse-dot"></span>
+        <span>MATHEMATICAL FOUNDATION • ASYMMETRIC KEY CRYPTOGRAPHY</span>
+      </div>
+
+      <div class="glass-panel content-block">
+        <h2><i data-lucide="book-open" style="color: var(--accent-cyan);"></i> Mathematical Theory of RSA</h2>
+        <p>
+          The <strong>RSA Cryptosystem</strong> is an asymmetric algorithm based on the computational difficulty of prime factorization. It uses two separate keys: a <strong>Public Key</strong> (e, n) available to everyone for encryption, and a <strong>Private Key</strong> (d, n) kept secret by the receiver for decryption.
+        </p>
+
+        <h3>1. Selection of Primes and Modulus</h3>
+        <p>
+          Select two large distinct prime numbers p and q. Compute the RSA modulus:
+        </p>
+        <div class="math-display-box">
+          n = p × q
+        </div>
+        <p>
+          The modulus n is published as part of both the public and private keys. Its bit-length defines the cryptographic key strength.
+        </p>
+
+        <h3>2. Euler's Totient Function φ(n)</h3>
+        <p>
+          Euler's totient function counts the positive integers up to n that are relatively prime (coprime) to n:
+        </p>
+        <div class="math-display-box">
+          φ(n) = (p - 1) × (q - 1)
+        </div>
+
+        <h3>3. Public Exponent Selection (e)</h3>
+        <p>
+          Select an integer e (the public exponent) such that:
+        </p>
+        <ul>
+          <li>1 &lt; e &lt; φ(n)</li>
+          <li>gcd(e, φ(n)) = 1 (e and φ(n) must be coprime)</li>
+        </ul>
+
+        <h3>4. Private Exponent Calculation (d)</h3>
+        <p>
+          The private exponent d is the modular multiplicative inverse of e modulo φ(n):
+        </p>
+        <div class="math-display-box">
+          e × d ≡ 1 mod φ(n) &nbsp;&nbsp;⟺&nbsp;&nbsp; d = e⁻¹ mod φ(n)
+        </div>
+        <p>
+          This is computed using the <strong>Extended Euclidean Algorithm</strong>.
+        </p>
+
+        <h3>5. Encryption and Decryption Formulas</h3>
+        <p>
+          For any plaintext numeric key M satisfying 0 ≤ M &lt; n:
+        </p>
+        <ul>
+          <li><strong>Encryption:</strong> C = M^e mod n</li>
+          <li><strong>Decryption:</strong> M' = C^d mod n</li>
+        </ul>
+
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="objective.html" class="btn btn-primary">
+            Next: Learning Objectives <i data-lucide="arrow-right" style="width: 16px;"></i>
+          </a>
+          <a href="simulation.html" class="btn btn-emerald">
+            <i data-lucide="play" style="width: 16px;"></i> Test in Simulation
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+        <div class="logo-icon" style="width: 28px; height: 28px;">
+          <i data-lucide="shield-check" style="color: #fff; width: 16px; height: 16px;"></i>
+        </div>
+        <span class="logo-title" style="font-size: 1.1rem;">CRYPTOLAB</span>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; max-width: 600px; line-height: 1.5; margin: 0;">
+        Interactive Cryptography Virtual Laboratory. Designed for educational demonstration and visualization of classical encryption algorithms.
+      </p>
+      <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; margin: 0.25rem 0;">
+        <a href="aim.html" class="footer-link">Aim</a>
+        <a href="theory.html" class="footer-link">Theory</a>
+        <a href="objective.html" class="footer-link">Objective</a>
+        <a href="procedure.html" class="footer-link">Procedure</a>
+        <a href="simulation.html" class="footer-link">Simulation</a>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-subtle); padding-top: 0.85rem; width: 100%;">
+        <div style="margin-bottom: 0.25rem;">Algorithm: RSA Asymmetric Cipher | Academic Project</div>
+        <div style="color: #cbd5e1;">Developed by <strong style="color: var(--accent-cyan); font-weight: 700; text-shadow: 0 0 12px rgba(6, 182, 212, 0.5);">Sachidananda</strong> and <strong style="color: var(--accent-cyan); font-weight: 700; text-shadow: 0 0 12px rgba(6, 182, 212, 0.5);">Ravikumar</strong></div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { createIcons, icons } from 'lucide';
+    document.addEventListener('DOMContentLoaded', () => {
+      createIcons({ icons });
+    });
+  </script>
+</body>
+</html>

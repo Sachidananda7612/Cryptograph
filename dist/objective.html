@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='18' height='11' x='3' y='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Objective — RSA Asymmetric Cryptography Virtual Laboratory</title>
+  <script type="module" crossorigin src="/assets/objective-CPwrE24x.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/lucide-BocMSlyz.js">
+  <link rel="stylesheet" crossorigin href="/assets/lucide-C2AYkABB.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="aim.html" class="logo-brand">
+        <div class="logo-icon">
+          <i data-lucide="shield-check" style="color: #fff; width: 22px; height: 22px;"></i>
+        </div>
+        <div>
+          <div class="logo-title">CRYPTOLAB</div>
+        </div>
+        <span class="badge-tag">RSA ASYMMETRIC LAB</span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="simulation.html" class="btn btn-primary btn-sm">
+          <i data-lucide="play" style="width: 14px;"></i> Launch Simulator
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Virtual Lab Layout -->
+  <div class="vlab-layout-wrapper">
+    <!-- Left Sidebar -->
+    <aside class="vlab-sidebar">
+      <div class="vlab-sidebar-title">Virtual Lab Sections</div>
+      <ul class="vlab-sidebar-menu">
+        <li>
+          <a href="aim.html" class="vlab-sidebar-link">
+            <i data-lucide="target" style="width: 18px;"></i> Aim
+          </a>
+        </li>
+        <li>
+          <a href="theory.html" class="vlab-sidebar-link">
+            <i data-lucide="book-open" style="width: 18px;"></i> Theory
+          </a>
+        </li>
+        <li>
+          <a href="objective.html" class="vlab-sidebar-link active">
+            <i data-lucide="compass" style="width: 18px;"></i> Objective
+          </a>
+        </li>
+        <li>
+          <a href="procedure.html" class="vlab-sidebar-link">
+            <i data-lucide="list-ordered" style="width: 18px;"></i> Procedure
+          </a>
+        </li>
+        <li>
+          <a href="simulation.html" class="vlab-sidebar-link">
+            <i data-lucide="play-circle" style="width: 18px;"></i> Simulation
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="vlab-main-content">
+      <div class="hero-pill" style="margin-bottom: 1.5rem;">
+        <span class="pulse-dot"></span>
+        <span>COURSE OBJECTIVES & OUTCOMES</span>
+      </div>
+
+      <div class="glass-panel content-block">
+        <h2><i data-lucide="compass" style="color: var(--accent-emerald);"></i> Learning Objectives</h2>
+        <p style="font-size: 1.05rem; color: #fff; margin-bottom: 1.5rem;">
+          Upon completing this virtual laboratory experiment, learners will be able to:
+        </p>
+
+        <ul>
+          <li><strong>1. Understand Asymmetric Cryptography:</strong> Differentiate symmetric ciphers from asymmetric key exchange systems that eliminate the shared secret distribution problem.</li>
+          <li><strong>2. Master Key Pair Generation:</strong> Perform manual and automated calculations for modulus $n$, Euler's totient $\phi(n)$, coprime public exponent $e$, and modular inverse private exponent $d$.</li>
+          <li><strong>3. Comprehend Trapdoor One-Way Functions:</strong> Explain why factoring large composite numbers $n = p \times q$ is the computational foundation of RSA security.</li>
+          <li><strong>4. Execute Modular Exponentiation:</strong> Encrypt numeric plaintext keys using public key $(e, n)$ and decrypt ciphertexts using private key $(d, n)$.</li>
+          <li><strong>5. Validate Cryptographic Integrity:</strong> Verify that the recovered plaintext key matches the original input ($M' \equiv M$) with 100% accuracy.</li>
+        </ul>
+
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="procedure.html" class="btn btn-primary">
+            Next: Experiment Procedure <i data-lucide="arrow-right" style="width: 16px;"></i>
+          </a>
+          <a href="simulation.html" class="btn btn-emerald">
+            <i data-lucide="play" style="width: 16px;"></i> Launch Simulator
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>CRYPTOLAB RSA ASYMMETRIC KEY VIRTUAL LABORATORY</div>
+      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
+        Aim • Theory • Objective • Procedure • Simulation
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

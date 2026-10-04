@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='18' height='11' x='3' y='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Procedure — RSA Asymmetric Cryptography Virtual Laboratory</title>
+  <script type="module" crossorigin src="/assets/procedure-CPwrE24x.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/lucide-BocMSlyz.js">
+  <link rel="stylesheet" crossorigin href="/assets/lucide-C2AYkABB.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="aim.html" class="logo-brand">
+        <div class="logo-icon">
+          <i data-lucide="shield-check" style="color: #fff; width: 22px; height: 22px;"></i>
+        </div>
+        <div>
+          <div class="logo-title">CRYPTOLAB</div>
+        </div>
+        <span class="badge-tag">RSA ASYMMETRIC LAB</span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="simulation.html" class="btn btn-primary btn-sm">
+          <i data-lucide="play" style="width: 14px;"></i> Launch Simulator
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Virtual Lab Layout -->
+  <div class="vlab-layout-wrapper">
+    <!-- Left Sidebar -->
+    <aside class="vlab-sidebar">
+      <div class="vlab-sidebar-title">Virtual Lab Sections</div>
+      <ul class="vlab-sidebar-menu">
+        <li>
+          <a href="aim.html" class="vlab-sidebar-link">
+            <i data-lucide="target" style="width: 18px;"></i> Aim
+          </a>
+        </li>
+        <li>
+          <a href="theory.html" class="vlab-sidebar-link">
+            <i data-lucide="book-open" style="width: 18px;"></i> Theory
+          </a>
+        </li>
+        <li>
+          <a href="objective.html" class="vlab-sidebar-link">
+            <i data-lucide="compass" style="width: 18px;"></i> Objective
+          </a>
+        </li>
+        <li>
+          <a href="procedure.html" class="vlab-sidebar-link active">
+            <i data-lucide="list-ordered" style="width: 18px;"></i> Procedure
+          </a>
+        </li>
+        <li>
+          <a href="simulation.html" class="vlab-sidebar-link">
+            <i data-lucide="play-circle" style="width: 18px;"></i> Simulation
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="vlab-main-content">
+      <div class="hero-pill" style="margin-bottom: 1.5rem;">
+        <span class="pulse-dot"></span>
+        <span>LABORATORY EXPERIMENT PROTOCOL</span>
+      </div>
+
+      <div class="glass-panel content-block">
+        <h2><i data-lucide="list-ordered" style="color: #f97316;"></i> Step-by-Step Procedure</h2>
+
+        <div class="procedure-step-card">
+          <div class="procedure-step-num">Step 1: Choose Two Prime Numbers (p, q)</div>
+          <p>
+            Navigate to the <strong>Simulation</strong> page. Enter two distinct prime numbers $p$ and $q$ (e.g., $p = 11, q = 13$ or $p = 61, q = 53$). The system will instantly check primality and distinctness.
+          </p>
+        </div>
+
+        <div class="procedure-step-card">
+          <div class="procedure-step-num">Step 2: Calculate Modulus (n) and Euler's Totient φ(n)</div>
+          <p>
+            Observe the computed values:
+            <br />
+            $n = p \times q$ &nbsp;&nbsp;|&nbsp;&nbsp; $\phi(n) = (p - 1)(q - 1)$
+          </p>
+        </div>
+
+        <div class="procedure-step-card">
+          <div class="procedure-step-num">Step 3: Choose Public Exponent (e)</div>
+          <p>
+            Input your chosen public exponent $e$ such that $1 &lt; e &lt; \phi(n)$ and $\gcd(e, \phi(n)) = 1$. You can also pick from the dynamically suggested coprime chips.
+          </p>
+        </div>
+
+        <div class="procedure-step-card">
+          <div class="procedure-step-num">Step 4: Compute Private Exponent (d)</div>
+          <p>
+            The simulator executes the Extended Euclidean Algorithm to calculate $d = e^{-1} \bmod \phi(n)$ such that $e \cdot d \equiv 1 \pmod{\phi(n)}$. Key pairs $(e, n)$ and $(d, n)$ are generated.
+          </p>
+        </div>
+
+        <div class="procedure-step-card">
+          <div class="procedure-step-num">Step 5: Enter Plaintext Key Number (M)</div>
+          <p>
+            In the Workbench, enter a numeric plaintext key $M$ ensuring $0 \le M &lt; n$ (e.g., $M = 4$ or $M = 65$).
+          </p>
+        </div>
+
+        <div class="procedure-step-card">
+          <div class="procedure-step-num">Step 6: Perform Encryption and Decryption</div>
+          <p>
+            Click <strong>"Encrypt & Decrypt Key Live"</strong> to compute:
+            <br />
+            <strong>Ciphertext:</strong> $C = M^e \bmod n$
+            <br />
+            <strong>Decryption:</strong> $M' = C^d \bmod n$
+            <br />
+            Verify that $M' = M$.
+          </p>
+        </div>
+
+        <div class="procedure-step-card">
+          <div class="procedure-step-num">Step 7: Execute Test Suite</div>
+          <p>
+            Click <strong>"Run All Test Cases"</strong> in the Automated Verification Test Suite to validate multiple prime configurations.
+          </p>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="simulation.html" class="btn btn-emerald" style="padding: 0.85rem 1.75rem; font-size: 1rem;">
+            <i data-lucide="play-circle" style="width: 18px;"></i> Open Simulation Page Now
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>CRYPTOLAB RSA ASYMMETRIC KEY VIRTUAL LABORATORY</div>
+      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
+        Aim • Theory • Objective • Procedure • Simulation
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
