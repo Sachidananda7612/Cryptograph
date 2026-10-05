@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='18' height='11' x='3' y='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='18' height='11' x='3' y='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Theory — RSA Asymmetric Cryptography Virtual Laboratory</title>
-  <script type="module" crossorigin src="/assets/theory-CPwrE24x.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/lucide-BocMSlyz.js">
-  <link rel="stylesheet" crossorigin href="/assets/lucide-C2AYkABB.css">
+  <script type="module" crossorigin src="/assets/theory-CBOyfm6c.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/lucide-DGYpIZcQ.js">
+  <link rel="stylesheet" crossorigin href="/assets/lucide-DRvE97n3.css">
 </head>
+
 <body>
   <!-- Header -->
   <header>
@@ -75,43 +78,46 @@
       <div class="glass-panel content-block">
         <h2><i data-lucide="book-open" style="color: var(--accent-cyan);"></i> Mathematical Theory of RSA</h2>
         <p>
-          The <strong>RSA Cryptosystem</strong> is an asymmetric algorithm based on the computational difficulty of prime factorization. It uses two separate keys: a <strong>Public Key</strong> $(e, n)$ available to everyone for encryption, and a <strong>Private Key</strong> $(d, n)$ kept secret by the receiver for decryption.
+          The <strong>RSA Cryptosystem</strong> is an asymmetric algorithm based on the computational difficulty of
+          prime factorization. It uses two separate keys: a <strong>Public Key</strong> (e, n) available to everyone for
+          encryption, and a <strong>Private Key</strong> (d, n) kept secret by the receiver for decryption.
         </p>
 
         <h3>1. Selection of Primes and Modulus</h3>
         <p>
-          Select two large distinct prime numbers $p$ and $q$. Compute the RSA modulus:
+          Select two large distinct prime numbers p and q. Compute the RSA modulus:
         </p>
         <div class="math-display-box">
-          n = p \times q
+          n = p × q
         </div>
         <p>
-          The modulus $n$ is published as part of both the public and private keys. Its bit-length defines the cryptographic key strength.
+          The modulus n is published as part of both the public and private keys. Its bit-length defines the
+          cryptographic key strength.
         </p>
 
-        <h3>2. Euler's Totient Function $\phi(n)$</h3>
+        <h3>2. Euler's Totient Function φ(n)</h3>
         <p>
-          Euler's totient function counts the positive integers up to $n$ that are relatively prime (coprime) to $n$:
+          Euler's totient function counts the positive integers up to n that are relatively prime (coprime) to n:
         </p>
         <div class="math-display-box">
-          \phi(n) = (p - 1) \times (q - 1)
+          φ(n) = (p - 1) × (q - 1)
         </div>
 
-        <h3>3. Public Exponent Selection ($e$)</h3>
+        <h3>3. Public Exponent Selection (e)</h3>
         <p>
-          Select an integer $e$ (the public exponent) such that:
+          Select an integer e (the public exponent) such that:
         </p>
         <ul>
-          <li>$1 &lt; e &lt; \phi(n)$</li>
-          <li>$\gcd(e, \phi(n)) = 1$ ($e$ and $\phi(n)$ must be coprime)</li>
+          <li>1 &lt; e &lt; φ(n)</li>
+          <li>gcd(e, φ(n)) = 1 (e and φ(n) must be coprime)</li>
         </ul>
 
-        <h3>4. Private Exponent Calculation ($d$)</h3>
+        <h3>4. Private Exponent Calculation (d)</h3>
         <p>
-          The private exponent $d$ is the modular multiplicative inverse of $e$ modulo $\phi(n)$:
+          The private exponent d is the modular multiplicative inverse of e modulo φ(n):
         </p>
         <div class="math-display-box">
-          e \times d \equiv 1 \pmod{\phi(n)} \quad \iff \quad d = e^{-1} \bmod \phi(n)
+          e × d ≡ 1 mod φ(n) &nbsp;&nbsp;⟺&nbsp;&nbsp; d = e⁻¹ mod φ(n)
         </div>
         <p>
           This is computed using the <strong>Extended Euclidean Algorithm</strong>.
@@ -119,15 +125,12 @@
 
         <h3>5. Encryption and Decryption Formulas</h3>
         <p>
-          For any plaintext numeric key $M$ satisfying $0 \le M &lt; n$:
+          For any plaintext numeric key M satisfying 0 ≤ M &lt; n:
         </p>
         <ul>
-          <li><strong>Encryption:</strong> $C = M^e \bmod n$</li>
-          <li><strong>Decryption:</strong> $M' = C^d \bmod n$</li>
+          <li><strong>Encryption:</strong> C = M^e mod n</li>
+          <li><strong>Decryption:</strong> M' = C^d mod n</li>
         </ul>
-        <p>
-          Euler's Totient Theorem guarantees that $(M^e)^d \equiv M^{k\phi(n) + 1} \equiv M \pmod n$, ensuring $M' = M$.
-        </p>
 
         <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
           <a href="objective.html" class="btn btn-primary">
@@ -144,12 +147,33 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div>CRYPTOLAB RSA ASYMMETRIC KEY VIRTUAL LABORATORY</div>
-      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
-        Aim • Theory • Objective • Procedure • Simulation
+      <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+        <div class="logo-icon" style="width: 28px; height: 28px;">
+          <i data-lucide="shield-check" style="color: #fff; width: 16px; height: 16px;"></i>
+        </div>
+        <span class="logo-title" style="font-size: 1.1rem;">CRYPTOLAB</span>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; max-width: 600px; line-height: 1.5; margin: 0;">
+        Interactive Cryptography Virtual Laboratory. Designed for educational demonstration and visualization of
+        classical encryption algorithms.
+      </p>
+      <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; margin: 0.25rem 0;">
+        <a href="aim.html" class="footer-link">Aim</a>
+        <a href="theory.html" class="footer-link">Theory</a>
+        <a href="objective.html" class="footer-link">Objective</a>
+        <a href="procedure.html" class="footer-link">Procedure</a>
+        <a href="simulation.html" class="footer-link">Simulation</a>
+      </div>
+      <div
+        style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-subtle); padding-top: 0.85rem; width: 100%;">
+        <div style="margin-bottom: 0.25rem;">Algorithm: RSA Asymmetric Cipher | Academic Project</div>
+        <div style="color: var(--text-secondary);">Developed by <strong
+            style="color: var(--accent-cyan); font-weight: 700;">Sachidananda</strong> and <strong
+            style="color: var(--accent-cyan); font-weight: 700;">Ravikumar</strong></div>
       </div>
     </div>
   </footer>
 
 </body>
+
 </html>

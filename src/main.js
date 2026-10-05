@@ -89,8 +89,16 @@ function recalculateAll() {
     const multiLimit = document.getElementById('label-multi-n-limit');
     if (multiLimit) multiLimit.textContent = '—';
 
-    document.getElementById('public-key-display').textContent = '(e = —, n = —)';
-    document.getElementById('private-key-display').textContent = '(d = —, n = —)';
+    const pubDisp = document.getElementById('public-key-display');
+    const privDisp = document.getElementById('private-key-display');
+    if (pubDisp) {
+      pubDisp.className = 'key-body';
+      pubDisp.textContent = '(e = —, n = —)';
+    }
+    if (privDisp) {
+      privDisp.className = 'key-body';
+      privDisp.textContent = '(d = —, n = —)';
+    }
 
     document.getElementById('candidates-container').innerHTML = '';
     resetWorkbenchDisplay();
@@ -133,22 +141,38 @@ function recalculateAll() {
   state.n = state.p * state.q;
   state.phi = (state.p - 1n) * (state.q - 1n);
 
-  document.getElementById('val-calc-n').textContent = `${state.p} × ${state.q} = ${state.n}`;
-  document.getElementById('val-calc-phi').textContent = `(${state.p}-1) × (${state.q}-1) = ${state.phi}`;
+  const valCalcN = document.getElementById('val-calc-n');
+  const valCalcPhi = document.getElementById('val-calc-phi');
+
+  if (valCalcN) {
+    valCalcN.innerHTML = `<span class="result-highlight-badge primary">${state.p} × ${state.q} = <strong>n = ${state.n}</strong></span>`;
+  }
+  if (valCalcPhi) {
+    valCalcPhi.innerHTML = `<span class="result-highlight-badge violet">(${state.p}-1) × (${state.q}-1) = <strong>φ(n) = ${state.phi}</strong></span>`;
+  }
   document.getElementById('label-n-limit').textContent = state.n.toString();
   const multiLimit = document.getElementById('label-multi-n-limit');
   if (multiLimit) multiLimit.textContent = state.n.toString();
 
   // Validate Public Exponent e
   const eStr = inputE.value.trim();
+  const pubDisplay = document.getElementById('public-key-display');
+  const privDisplay = document.getElementById('private-key-display');
+
   if (!eStr) {
     state.e = null;
     state.d = null;
     badgeE.className = 'status-pill info';
     badgeE.textContent = 'Enter Exponent e';
     gcdInfoText.textContent = `Enter an integer e coprime to φ(n) = ${state.phi}`;
-    document.getElementById('public-key-display').textContent = `(e = —, n = ${state.n})`;
-    document.getElementById('private-key-display').textContent = `(d = —, n = ${state.n})`;
+    if (pubDisplay) {
+      pubDisplay.className = 'key-body';
+      pubDisplay.textContent = `(e = —, n = ${state.n})`;
+    }
+    if (privDisplay) {
+      privDisplay.className = 'key-body';
+      privDisplay.textContent = `(d = —, n = ${state.n})`;
+    }
     renderCandidateChips();
     resetWorkbenchDisplay();
     return;
@@ -186,16 +210,25 @@ function recalculateAll() {
     state.d = null;
   }
 
-  // Update Key Displays
-  const pubDisplay = document.getElementById('public-key-display');
-  const privDisplay = document.getElementById('private-key-display');
-
+  // Update Key Displays (Whole Cell Highlighting)
   if (state.d !== null) {
-    if (pubDisplay) pubDisplay.textContent = `(e = ${state.e}, n = ${state.n})`;
-    if (privDisplay) privDisplay.textContent = `(d = ${state.d}, n = ${state.n})`;
+    if (pubDisplay) {
+      pubDisplay.className = 'key-body active-public';
+      pubDisplay.innerHTML = `(e = <strong>${state.e}</strong>, n = <strong>${state.n}</strong>)`;
+    }
+    if (privDisplay) {
+      privDisplay.className = 'key-body active-private';
+      privDisplay.innerHTML = `(d = <strong>${state.d}</strong>, n = <strong>${state.n}</strong>)`;
+    }
   } else {
-    if (pubDisplay) pubDisplay.textContent = `(e = ${state.e}, n = ${state.n}) [Invalid e]`;
-    if (privDisplay) privDisplay.textContent = `[Cannot compute d: e and φ(n) not coprime]`;
+    if (pubDisplay) {
+      pubDisplay.className = 'key-body';
+      pubDisplay.textContent = state.n ? `(e = ${state.e || '—'}, n = ${state.n}) [Invalid e]` : '(e = —, n = —)';
+    }
+    if (privDisplay) {
+      privDisplay.className = 'key-body';
+      privDisplay.textContent = `[Cannot compute d: e and φ(n) not coprime]`;
+    }
   }
 
   // Prepare Workbench State
@@ -211,6 +244,15 @@ function resetWorkbenchDisplay() {
   const fM = document.getElementById('flow-node-m');
   const fC = document.getElementById('flow-node-c');
   const fD = document.getElementById('flow-node-dec');
+
+  const cardM = fM?.closest('.flow-node');
+  const cardC = fC?.closest('.flow-node');
+  const cardDec = fD?.closest('.flow-node');
+
+  if (cardM) cardM.className = 'flow-node';
+  if (cardC) cardC.className = 'flow-node';
+  if (cardDec) cardDec.className = 'flow-node';
+
   if (fM) fM.textContent = state.messageNum !== null ? state.messageNum.toString() : '—';
   if (fC) fC.textContent = '—';
   if (fD) fD.textContent = '—';
@@ -314,15 +356,30 @@ function updateWorkbenchReadiness() {
     inputMsg.classList.add('invalid');
   }
 
-  // Update Plaintext node
+  // Update Plaintext node (Whole Cell)
   const fM = document.getElementById('flow-node-m');
-  if (fM) fM.textContent = state.messageNum.toString();
+  const cardM = fM?.closest('.flow-node');
+  if (fM) {
+    fM.textContent = isValidM ? state.messageNum.toString() : (state.messageNum !== null ? state.messageNum.toString() : '—');
+  }
+  if (cardM) {
+    if (isValidM) {
+      cardM.className = 'flow-node active-plain';
+    } else {
+      cardM.className = 'flow-node';
+    }
+  }
 
   // Reset downstream nodes
   const fC = document.getElementById('flow-node-c');
   const fD = document.getElementById('flow-node-dec');
+  const cardC = fC?.closest('.flow-node');
+  const cardDec = fD?.closest('.flow-node');
+
   if (fC) fC.textContent = '—';
   if (fD) fD.textContent = '—';
+  if (cardC) cardC.className = 'flow-node';
+  if (cardDec) cardDec.className = 'flow-node';
 
   const tEncSub = document.getElementById('trace-enc-sub');
   const tEncRes = document.getElementById('trace-enc-result');
@@ -345,7 +402,7 @@ function updateWorkbenchReadiness() {
   createIcons({ icons });
 }
 
-// Action 1: Encrypt Single Number
+// Action 1: Encrypt Single Number (Whole Cell Flow Highlight)
 function encryptSingleNumber() {
   if (state.d === null || state.e === null || state.n === null || state.messageNum === null) {
     showToast('Please specify valid primes p, q, exponent e, and key M first', 'error');
@@ -355,13 +412,24 @@ function encryptSingleNumber() {
   // Encryption: C = M^e mod n
   state.cipherNum = RSACryptoEngine.encryptNumber(state.messageNum, state.e, state.n);
 
-  // Update Pipeline Node
-  document.getElementById('flow-node-c').textContent = state.cipherNum.toString();
-  document.getElementById('flow-node-dec').textContent = '—';
+  // Update Pipeline Node (Whole Cell)
+  const fC = document.getElementById('flow-node-c');
+  const cardC = fC?.closest('.flow-node');
+  if (fC) {
+    fC.textContent = state.cipherNum.toString();
+  }
+  if (cardC) {
+    cardC.className = 'flow-node active-cipher';
+  }
 
-  // Math Step 6 Trace
+  const fD = document.getElementById('flow-node-dec');
+  const cardDec = fD?.closest('.flow-node');
+  if (fD) fD.textContent = '—';
+  if (cardDec) cardDec.className = 'flow-node';
+
+  // Math Step Trace
   document.getElementById('trace-enc-sub').textContent = `C = ${state.messageNum}^${state.e} mod ${state.n}`;
-  document.getElementById('trace-enc-result').textContent = `C = ${state.cipherNum}`;
+  document.getElementById('trace-enc-result').innerHTML = `<span class="result-highlight-badge amber"><strong>C = ${state.cipherNum}</strong></span>`;
 
   // Reset Step 7 Decryption Trace
   document.getElementById('trace-dec-sub').textContent = `M = ${state.cipherNum}^${state.d} mod ${state.n}`;
@@ -382,7 +450,7 @@ function encryptSingleNumber() {
   createIcons({ icons });
 }
 
-// Action 2: Decrypt Single Number
+// Action 2: Decrypt Single Number (Whole Cell Flow Highlight)
 function decryptSingleNumber() {
   if (state.cipherNum === null || state.d === null || state.n === null) {
     showToast('No ciphertext available to decrypt. Please encrypt a key first.', 'error');
@@ -392,23 +460,30 @@ function decryptSingleNumber() {
   // Decryption: M' = C^d mod n
   state.decryptedNum = RSACryptoEngine.decryptNumber(state.cipherNum, state.d, state.n);
 
-  // Update Pipeline Node
-  document.getElementById('flow-node-dec').textContent = state.decryptedNum.toString();
+  // Update Pipeline Node (Whole Cell)
+  const fD = document.getElementById('flow-node-dec');
+  const cardDec = fD?.closest('.flow-node');
+  if (fD) {
+    fD.textContent = state.decryptedNum.toString();
+  }
+  if (cardDec) {
+    cardDec.className = 'flow-node active-recovered';
+  }
 
-  // Math Step 7 Trace
-  document.getElementById('trace-dec-sub').textContent = `M = ${state.cipherNum}^${state.d} mod ${state.n}`;
+  // Math Step Trace
+  document.getElementById('trace-dec-sub').textContent = `M' = ${state.cipherNum}^${state.d} mod ${state.n}`;
   const isMatch = state.decryptedNum === state.messageNum;
 
   const statusBadge = document.getElementById('distribution-status-badge');
   if (isMatch) {
-    document.getElementById('trace-dec-result').textContent = `M = ${state.decryptedNum} (Verified 100% Match ✓)`;
+    document.getElementById('trace-dec-result').innerHTML = `<span class="result-highlight-badge emerald"><strong>M' = ${state.decryptedNum} ✓ (Match)</strong></span>`;
     statusBadge.className = 'status-pill success';
-    statusBadge.innerHTML = `<i data-lucide="check-circle" style="width: 16px;"></i> Key Distribution Verified: Recovered M = ${state.decryptedNum}`;
+    statusBadge.innerHTML = `<i data-lucide="check-circle" style="width: 16px;"></i> Key Distribution Verified: Recovered M' = ${state.decryptedNum}`;
     sound.playSuccess();
     launchCelebration();
-    showToast(`Decrypted C = ${state.cipherNum} → Recovered Key M = ${state.decryptedNum} (Match ✓)`, 'success');
+    showToast(`Decrypted C = ${state.cipherNum} → Recovered Key M' = ${state.decryptedNum} (Match ✓)`, 'success');
   } else {
-    document.getElementById('trace-dec-result').textContent = `M = ${state.decryptedNum} (Mismatch ✗)`;
+    document.getElementById('trace-dec-result').textContent = `M' = ${state.decryptedNum} (Mismatch ✗)`;
     statusBadge.className = 'status-pill danger';
     statusBadge.innerHTML = `<i data-lucide="alert-triangle" style="width: 16px;"></i> Decryption Mismatch`;
     showToast('Decryption mismatch detected', 'error');
@@ -441,8 +516,16 @@ function encryptMultiNumbers() {
     state.multiCiphers = encryptedBlocks.map(b => b.cipher);
     state.multiKeys = parsedNumbers;
 
-    document.getElementById('multi-ciphertext-array').textContent = `[ ${state.multiCiphers.join(', ')} ]`;
-    document.getElementById('multi-decrypted-output').textContent = '[ — (Click Decrypt Sequence) ]';
+    const multiCipher = document.getElementById('multi-ciphertext-array');
+    if (multiCipher) {
+      multiCipher.className = 'result-highlight-badge amber';
+      multiCipher.textContent = `[ ${state.multiCiphers.join(', ')} ]`;
+    }
+    const multiDec = document.getElementById('multi-decrypted-output');
+    if (multiDec) {
+      multiDec.className = '';
+      multiDec.textContent = '[ — (Click Decrypt Sequence) ]';
+    }
 
     const btnDecMulti = document.getElementById('btn-decrypt-multi');
     if (btnDecMulti) btnDecMulti.disabled = false;
@@ -465,7 +548,11 @@ function decryptMultiNumbers() {
     const decryptedBlocks = RSACryptoEngine.decryptNumberSequence(state.multiCiphers, state.d, state.n);
     state.multiDecrypted = decryptedBlocks.map(d => d.decryptedNumber);
 
-    document.getElementById('multi-decrypted-output').textContent = `[ ${state.multiDecrypted.join(', ')} ]`;
+    const multiDec = document.getElementById('multi-decrypted-output');
+    if (multiDec) {
+      multiDec.className = 'result-highlight-badge emerald';
+      multiDec.textContent = `[ ${state.multiDecrypted.join(', ')} ]`;
+    }
 
     sound.playSuccess();
     launchCelebration();
@@ -492,7 +579,7 @@ function initEventListeners() {
   if (inputMulti) {
     inputMulti.addEventListener('input', () => {
       sound.playProcess();
-      executeCryptoWorkbench();
+      encryptMultiNumbers();
     });
   }
 
@@ -552,8 +639,8 @@ function initEventListeners() {
     state.mode = 'number';
     tabNum.classList.add('active');
     tabMulti.classList.remove('active');
-    secNum.style.display = 'block';
-    secMulti.style.display = 'none';
+    if (secNum) secNum.style.display = 'block';
+    if (secMulti) secMulti.style.display = 'none';
     recalculateAll();
   });
 
@@ -562,8 +649,8 @@ function initEventListeners() {
     state.mode = 'multi';
     tabMulti.classList.add('active');
     tabNum.classList.remove('active');
-    secNum.style.display = 'none';
-    secMulti.style.display = 'block';
+    if (secNum) secNum.style.display = 'none';
+    if (secMulti) secMulti.style.display = 'block';
     recalculateAll();
   });
 
@@ -596,7 +683,7 @@ function initEventListeners() {
         document.getElementById('input-q').value = '13';
         document.getElementById('input-e').value = '17';
         document.getElementById('input-message-num').value = '4';
-        tabNum.click();
+        tabNum?.click();
         recalculateAll();
         encryptSingleNumber();
         decryptSingleNumber();
@@ -605,7 +692,7 @@ function initEventListeners() {
         document.getElementById('input-q').value = '53';
         document.getElementById('input-e').value = '17';
         document.getElementById('input-message-num').value = '65';
-        tabNum.click();
+        tabNum?.click();
         recalculateAll();
         encryptSingleNumber();
         decryptSingleNumber();
@@ -614,7 +701,7 @@ function initEventListeners() {
         document.getElementById('input-q').value = '47';
         document.getElementById('input-e').value = '17';
         document.getElementById('input-message-multi').value = '15, 28, 92, 114';
-        tabMulti.click();
+        tabMulti?.click();
         recalculateAll();
         encryptMultiNumbers();
         decryptMultiNumbers();
@@ -655,26 +742,6 @@ function initEventListeners() {
     });
   });
 
-  // Virtual Lab Tab Switcher (Aim, Theory, Objective, Procedure, Simulation)
-  document.querySelectorAll('.vlab-tab-btn').forEach(tabBtn => {
-    tabBtn.addEventListener('click', () => {
-      sound.playClick();
-      const targetTab = tabBtn.getAttribute('data-vlab-tab');
-
-      // Update active tab buttons
-      document.querySelectorAll('.vlab-tab-btn').forEach(btn => btn.classList.remove('active'));
-      tabBtn.classList.add('active');
-
-      // Update active sections
-      document.querySelectorAll('.vlab-section').forEach(sec => sec.classList.remove('active'));
-      const targetSec = document.getElementById(`vlab-${targetTab}`);
-      if (targetSec) {
-        targetSec.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    });
-  });
-
   // Reset All Button
   document.getElementById('reset-all-btn')?.addEventListener('click', () => {
     sound.playClick();
@@ -695,7 +762,7 @@ function initEventListeners() {
   soundBtn?.addEventListener('click', () => {
     const isNowOn = sound.toggle();
     state.isSoundOn = isNowOn;
-    soundLabel.textContent = isNowOn ? 'Audio ON' : 'Audio OFF';
+    if (soundLabel) soundLabel.textContent = isNowOn ? 'Audio ON' : 'Audio OFF';
     showToast(`Audio sound effects ${isNowOn ? 'enabled' : 'disabled'}`, 'info');
   });
 }

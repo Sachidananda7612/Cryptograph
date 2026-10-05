@@ -20,6 +20,7 @@ Unlike classical symmetric ciphers, RSA solves the key-distribution problem by u
   - **[Objective](objective.html)**: Key learning outcomes and competency checklist.
   - **[Procedure](procedure.html)**: Step-by-step experiment protocol and instructions.
   - **[Simulation](simulation.html)**: Live interactive cryptographic workbench.
+  - **[References](references.html)**: Standard academic textbooks and curriculum bibliography.
 - **🔢 Interactive RSA Key Generation:**
   - Enter custom prime numbers (p, q) or generate random primes with one click.
   - Automatic modulus (n = p × q) and Euler's Totient (φ(n) = (p - 1)(q - 1)) computation.
@@ -37,7 +38,7 @@ Unlike classical symmetric ciphers, RSA solves the key-distribution problem by u
 - **🔊 Audio FX & Visual Feedback:**
   - Web Audio API synthesized procedural sound effects (toggable).
   - Confetti celebrations and toast notifications.
-  - Sleek dark cyber glassmorphism design with responsive sidebar navigation.
+  - Clean academic white design with Royal Blue accents and left sidebar navigation.
 
 ---
 
@@ -51,13 +52,14 @@ Crypto/
 ├── objective.html      # 5 Learning Objectives
 ├── procedure.html      # Step-by-Step Experiment Protocol
 ├── simulation.html     # Interactive RSA Simulator & Workbench
+├── references.html     # Standard Academic Textbooks & Bibliography
 ├── package.json        # Project metadata and dependencies
 ├── vite.config.js      # Multi-page Vite build configuration
 ├── src/
 │   ├── main.js         # DOM manipulation, state, and event orchestration
 │   ├── rsa.js          # BigInt RSA modular arithmetic cryptographic engine
 │   ├── sound.js        # Web Audio API procedural sound synthesizer
-│   └── style.css       # Complete cyber dark glassmorphism design system
+│   └── style.css       # Clean academic design system and full-left layout
 └── README.md           # Project documentation and guide
 ```
 

@@ -7,9 +7,9 @@
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='18' height='11' x='3' y='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aim — RSA Asymmetric Cryptography Virtual Laboratory</title>
-  <script type="module" crossorigin src="/assets/aim-CPwrE24x.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/lucide-BocMSlyz.js">
-  <link rel="stylesheet" crossorigin href="/assets/lucide-C2AYkABB.css">
+  <script type="module" crossorigin src="/assets/aim-CBOyfm6c.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/lucide-DGYpIZcQ.js">
+  <link rel="stylesheet" crossorigin href="/assets/lucide-DRvE97n3.css">
 </head>
 
 <body>
@@ -77,27 +77,9 @@
 
       <div class="glass-panel content-block">
         <h2><i data-lucide="target" style="color: #f97316;"></i> Aim of the Experiment</h2>
-        <p style="font-size: 1.15rem; color: #fff; font-weight: 600; line-height: 1.6;">
-          To study, implement, and analyze the <strong>RSA (Rivest–Shamir–Adleman) Asymmetric Key Cryptosystem</strong>
-          for key pair generation using prime numbers, computing public/private exponents, and performing numeric
-          plaintext key encryption and decryption.
+        <p style="font-size: 1.15rem; color: var(--text-primary); font-weight: 500; line-height: 1.8; margin-bottom: 2rem;">
+          To study and implement asymmetric key distribution using the RSA (Rivest–Shamir–Adleman) cryptosystem. This includes generating public-private key pairs (e, n) and (d, n), distributing the public key over an insecure channel, performing asymmetric encryption (c = m^e mod n) and decryption (m = c^d mod n), and understanding the computational hardness of integer factorization behind its security.
         </p>
-
-        <h3>Apparatus & Environment</h3>
-        <ul>
-          <li><strong>Virtual Laboratory Simulator:</strong> Interactive Browser-based Execution Sandbox.</li>
-          <li><strong>Implementation Language:</strong> Python 3 / Modern Web ECMAScript with BigInt Modular Arithmetic.
-          </li>
-          <li><strong>Architecture:</strong> Client-side Cryptographic Mathematics Engine.</li>
-        </ul>
-
-        <h3>Prerequisites</h3>
-        <ul>
-          <li>Basic concepts of Number Theory and Prime Factorization.</li>
-          <li>Modulo Arithmetic ($A \bmod N$) and Congruence Relations.</li>
-          <li>Greatest Common Divisor (GCD) and Coprimality ($\gcd(a, b) = 1$).</li>
-          <li>Euler's Totient Function $\phi(n)$ and Bézout's Identity.</li>
-        </ul>
 
         <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
           <a href="theory.html" class="btn btn-primary">
@@ -114,9 +96,25 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div>CRYPTOLAB RSA ASYMMETRIC KEY VIRTUAL LABORATORY</div>
-      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
-        Aim • Theory • Objective • Procedure • Simulation
+      <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+        <div class="logo-icon" style="width: 28px; height: 28px;">
+          <i data-lucide="shield-check" style="color: #fff; width: 16px; height: 16px;"></i>
+        </div>
+        <span class="logo-title" style="font-size: 1.1rem;">CRYPTOLAB</span>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; max-width: 600px; line-height: 1.5; margin: 0;">
+        Interactive Cryptography Virtual Laboratory. Designed for educational demonstration and visualization of classical encryption algorithms.
+      </p>
+      <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; margin: 0.25rem 0;">
+        <a href="aim.html" class="footer-link">Aim</a>
+        <a href="theory.html" class="footer-link">Theory</a>
+        <a href="objective.html" class="footer-link">Objective</a>
+        <a href="procedure.html" class="footer-link">Procedure</a>
+        <a href="simulation.html" class="footer-link">Simulation</a>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-subtle); padding-top: 0.85rem; width: 100%;">
+        <div style="margin-bottom: 0.25rem;">Algorithm: RSA Asymmetric Cipher | Academic Project</div>
+        <div style="color: var(--text-secondary);">Developed by <strong style="color: var(--accent-cyan); font-weight: 700;">Sachidananda</strong> and <strong style="color: var(--accent-cyan); font-weight: 700;">Ravikumar</strong></div>
       </div>
     </div>
   </footer>

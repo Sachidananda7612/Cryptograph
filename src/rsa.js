@@ -99,7 +99,7 @@ export class RSACryptoEngine {
     for (let i = binaryExp.length - 1; i >= 0; i--) {
       const bit = binaryExp[i];
       const prevResult = result;
-      
+
       if (bit === '1') {
         result = (result * currentPower) % m;
         steps.push({

@@ -10,7 +10,8 @@ export default defineConfig({
         theory: resolve(__dirname, 'theory.html'),
         objective: resolve(__dirname, 'objective.html'),
         procedure: resolve(__dirname, 'procedure.html'),
-        simulation: resolve(__dirname, 'simulation.html')
+        simulation: resolve(__dirname, 'simulation.html'),
+        references: resolve(__dirname, 'references.html')
       }
     }
   }

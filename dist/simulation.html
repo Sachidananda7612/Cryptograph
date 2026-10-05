@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='18' height='11' x='3' y='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='18' height='11' x='3' y='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simulation — RSA Asymmetric Cryptography Virtual Laboratory</title>
-  <script type="module" crossorigin src="/assets/simulation-D_fkW5kL.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/lucide-BocMSlyz.js">
-  <link rel="stylesheet" crossorigin href="/assets/lucide-C2AYkABB.css">
+  <script type="module" crossorigin src="/assets/simulation-D6ezmDxt.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/lucide-DGYpIZcQ.js">
+  <link rel="stylesheet" crossorigin href="/assets/lucide-DRvE97n3.css">
 </head>
+
 <body>
   <!-- Header -->
   <header>
@@ -72,7 +75,7 @@
     <!-- Main Content Area: Interactive Simulator -->
     <main class="vlab-main-content">
       <!-- Hero Header inside Simulation -->
-      <section class="hero-section" style="padding: 0 0 2rem 0; text-align: left;">
+      <section class="hero-section" style="padding: 0 0 1.5rem 0; text-align: left;">
         <div class="hero-pill">
           <span class="pulse-dot"></span>
           <span>INTERACTIVE SIMULATOR • RSA ASYMMETRIC KEY CRYPTOGRAPHY</span>
@@ -80,55 +83,6 @@
         <h1 class="hero-title" style="font-size: 2.4rem;">
           RSA Key Generation & <span class="gradient-text">Encryption Workbench</span>
         </h1>
-        <p class="hero-desc" style="margin: 0 0 1.5rem 0; text-align: left;">
-          Select two prime numbers ($p, q$), choose your public exponent $e$, observe key derivation $(e, n)$ & $(d, n)$, and encrypt/decrypt numeric plaintext keys live.
-        </p>
-
-        <!-- Presets -->
-        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-          <button class="btn btn-secondary btn-sm preset-btn" data-preset="small">
-            <i data-lucide="zap" style="width: 14px; color: var(--accent-amber);"></i> Small Primes (11, 13) | M = 4
-          </button>
-          <button class="btn btn-secondary btn-sm preset-btn" data-preset="standard">
-            <i data-lucide="shield" style="width: 14px; color: var(--accent-cyan);"></i> Standard (61, 53) | M = 65
-          </button>
-          <button class="btn btn-secondary btn-sm preset-btn" data-preset="multi">
-            <i data-lucide="list-ordered" style="width: 14px; color: var(--accent-emerald);"></i> Key Numbers Sequence (43, 47)
-          </button>
-          <button id="btn-random-primes-hero" class="btn btn-primary btn-sm">
-            <i data-lucide="dices" style="width: 14px;"></i> Random Primes
-          </button>
-        </div>
-
-        <!-- Live Pipeline Ribbon -->
-        <div class="pipeline-ribbon" style="margin: 0 0 2rem 0; justify-content: flex-start;">
-          <div class="ribbon-item">
-            <span class="ribbon-label">Prime p:</span>
-            <span class="ribbon-val" id="ribbon-p">11</span>
-          </div>
-          <div class="ribbon-item">
-            <span class="ribbon-label">Prime q:</span>
-            <span class="ribbon-val" id="ribbon-q">13</span>
-          </div>
-          <span class="ribbon-arrow">➔</span>
-          <div class="ribbon-item">
-            <span class="ribbon-label">Modulus n:</span>
-            <span class="ribbon-val" id="ribbon-n">143</span>
-          </div>
-          <div class="ribbon-item">
-            <span class="ribbon-label">φ(n):</span>
-            <span class="ribbon-val" id="ribbon-phi">120</span>
-          </div>
-          <span class="ribbon-arrow">➔</span>
-          <div class="ribbon-item">
-            <span class="ribbon-label">Public Key (e, n):</span>
-            <span class="ribbon-val highlight-cyan" id="ribbon-pub">(17, 143)</span>
-          </div>
-          <div class="ribbon-item">
-            <span class="ribbon-label">Private Key (d, n):</span>
-            <span class="ribbon-val highlight-emerald" id="ribbon-priv">(113, 143)</span>
-          </div>
-        </div>
       </section>
 
       <!-- Step 1: Prime Numbers & Modulus Calculation -->
@@ -146,10 +100,11 @@
           <div class="form-group">
             <label class="form-label" for="input-p">
               <span>Prime Number (p)</span>
-              <span id="badge-p" class="status-pill success">✓ Prime</span>
+              <span id="badge-p" class="status-pill info">Awaiting Input</span>
             </label>
             <div class="input-wrapper">
-              <input type="number" id="input-p" class="cyber-input" value="11" min="2" max="9999" />
+              <input type="number" id="input-p" class="cyber-input" placeholder="Enter a large prime number p (e.g. 11)"
+                min="2" max="9999" />
             </div>
           </div>
 
@@ -157,10 +112,11 @@
           <div class="form-group">
             <label class="form-label" for="input-q">
               <span>Prime Number (q)</span>
-              <span id="badge-q" class="status-pill success">✓ Prime</span>
+              <span id="badge-q" class="status-pill info">Awaiting Input</span>
             </label>
             <div class="input-wrapper">
-              <input type="number" id="input-q" class="cyber-input" value="13" min="2" max="9999" />
+              <input type="number" id="input-q" class="cyber-input" placeholder="Enter a large prime number q (e.g. 13)"
+                min="2" max="9999" />
             </div>
           </div>
         </div>
@@ -175,11 +131,11 @@
         <div class="math-display-box">
           <div class="math-row">
             <span class="math-label">Modulus (n = p × q):</span>
-            <span class="math-val highlight-cyan" id="val-calc-n">11 × 13 = 143</span>
+            <span class="math-val highlight-cyan" id="val-calc-n">—</span>
           </div>
           <div class="math-row">
             <span class="math-label">Euler's Totient φ(n) = (p-1)(q-1):</span>
-            <span class="math-val highlight-violet" id="val-calc-phi">(10) × (12) = 120</span>
+            <span class="math-val highlight-violet" id="val-calc-phi">—</span>
           </div>
         </div>
       </div>
@@ -198,16 +154,18 @@
         <div class="form-group" style="margin-bottom: 1rem;">
           <label class="form-label" for="input-e">
             <span>Public Exponent (e) — <strong style="color: var(--accent-cyan);">Asked from user</strong></span>
-            <span id="badge-e" class="status-pill success">✓ Valid Coprime Exponent</span>
+            <span id="badge-e" class="status-pill info">Awaiting Primes</span>
           </label>
           <div class="input-wrapper">
-            <input type="number" id="input-e" class="cyber-input" value="17" min="2" />
+            <input type="number" id="input-e" class="cyber-input" placeholder="Enter public exponent e (e.g. 17)"
+              min="2" />
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.3rem;">
             <span id="gcd-info-text" style="font-size: 0.75rem; color: var(--text-muted);">
-              gcd(17, 120) = 1 (Coprime)
+              Enter p and q to calculate φ(n) and gcd(e, φ(n))
             </span>
-            <button id="btn-suggest-e" class="btn btn-secondary btn-sm" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;">
+            <button id="btn-suggest-e" class="btn btn-secondary btn-sm"
+              style="padding: 0.2rem 0.6rem; font-size: 0.75rem;">
               <i data-lucide="sparkles" style="width: 12px; color: var(--accent-cyan);"></i> Suggest Next e
             </button>
           </div>
@@ -215,7 +173,8 @@
 
         <!-- Suggested Candidates Chips -->
         <div style="margin-bottom: 1.25rem;">
-          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Valid Candidates for current φ(n):</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Valid Candidates for current
+            φ(n):</span>
           <div class="chips-container" id="candidates-container"></div>
         </div>
 
@@ -230,7 +189,7 @@
                 <i data-lucide="copy" style="width: 14px;"></i>
               </button>
             </div>
-            <div class="key-body" id="public-key-display">(e = 17, n = 143)</div>
+            <div class="key-body" id="public-key-display">(e = —, n = —)</div>
             <div style="font-size: 0.7rem; color: var(--text-muted);">
               <span class="status-pill info" style="font-size: 0.65rem;">PUBLIC</span> For Encryption
             </div>
@@ -245,7 +204,7 @@
                 <i data-lucide="copy" style="width: 14px;"></i>
               </button>
             </div>
-            <div class="key-body" id="private-key-display">(d = 113, n = 143)</div>
+            <div class="key-body" id="private-key-display">(d = —, n = —)</div>
             <div style="font-size: 0.7rem; color: var(--text-muted);">
               <span class="status-pill danger" style="font-size: 0.65rem;">PRIVATE</span> For Decryption
             </div>
@@ -260,7 +219,7 @@
             <span class="step-number-badge">3</span>
             <h2 class="step-title">Encryption & Decryption Workbench</h2>
           </div>
-          
+
           <!-- Mode Tabs -->
           <div class="tab-group">
             <button class="tab-btn active" id="tab-mode-number">
@@ -278,11 +237,13 @@
             <!-- Plaintext Key Input -->
             <div class="form-group">
               <label class="form-label" for="input-message-num">
-                <span>Enter Plaintext Key Number (M) — Must be integer &lt; <span id="label-n-limit" style="color: var(--accent-cyan);">143</span></span>
-                <span id="badge-msg-num" class="status-pill success">✓ Valid M &lt; n</span>
+                <span>Enter Plaintext Key Number (M) — Must be integer &lt; <span id="label-n-limit"
+                    style="color: var(--accent-cyan);">—</span></span>
+                <span id="badge-msg-num" class="status-pill info">Awaiting Input</span>
               </label>
               <div class="input-wrapper">
-                <input type="number" id="input-message-num" class="cyber-input" value="4" min="0" />
+                <input type="number" id="input-message-num" class="cyber-input"
+                  placeholder="Enter plaintext key number M (e.g. 4)" min="0" />
               </div>
               <div style="display: flex; gap: 0.4rem; margin-top: 0.4rem;">
                 <button class="btn btn-secondary btn-sm msg-preset-btn" data-val="4">Key M = 4</button>
@@ -293,13 +254,17 @@
 
             <!-- Execution Buttons -->
             <div style="display: flex; flex-direction: column; justify-content: flex-end; gap: 0.75rem;">
-              <div style="display: flex; gap: 0.75rem;">
-                <button id="btn-execute-num" class="btn btn-primary" style="flex: 1;">
-                  <i data-lucide="lock" style="width: 16px;"></i> Encrypt & Decrypt Key Live
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                <button id="btn-encrypt-num" class="btn btn-primary" style="width: 100%;">
+                  <i data-lucide="lock" style="width: 16px;"></i> 1. Encrypt Key (M)
+                </button>
+                <button id="btn-decrypt-num" class="btn btn-emerald" style="width: 100%;" disabled>
+                  <i data-lucide="unlock" style="width: 16px;"></i> 2. Decrypt Cipher (C)
                 </button>
               </div>
-              <div id="distribution-status-badge" class="status-pill success" style="justify-content: center; padding: 0.5rem; font-size: 0.85rem;">
-                <i data-lucide="check-circle" style="width: 16px;"></i> Asymmetric Key Distribution Successful
+              <div id="distribution-status-badge" class="status-pill info"
+                style="justify-content: center; padding: 0.5rem; font-size: 0.85rem;">
+                <i data-lucide="info" style="width: 16px;"></i> Ready — Enter Plaintext Key M to Begin
               </div>
             </div>
           </div>
@@ -320,7 +285,8 @@
             <div class="flow-node">
               <div class="flow-node-title">Ciphertext Number (C)</div>
               <div class="flow-node-val highlight-amber" id="flow-node-c">49</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Encrypted with (e, n)</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Encrypted with (e, n)
+              </div>
             </div>
 
             <div class="flow-connector">
@@ -331,14 +297,16 @@
             <div class="flow-node">
               <div class="flow-node-title">Recovered Key Number (M')</div>
               <div class="flow-node-val highlight-emerald" id="flow-node-dec">4</div>
-              <div style="font-size: 0.75rem; color: var(--accent-emerald); margin-top: 0.25rem;">Decrypted with (d, n)</div>
+              <div style="font-size: 0.75rem; color: var(--accent-emerald); margin-top: 0.25rem;">Decrypted with (d, n)
+              </div>
             </div>
           </div>
 
           <!-- Math Step Traces -->
           <div class="grid-2col" style="margin-top: 1.5rem;">
             <div class="math-display-box">
-              <div style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+              <div
+                style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
                 <i data-lucide="lock" style="width: 16px;"></i> Step 6: Encryption Mathematical Trace
               </div>
               <div class="math-row">
@@ -356,7 +324,8 @@
             </div>
 
             <div class="math-display-box">
-              <div style="font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+              <div
+                style="font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
                 <i data-lucide="unlock" style="width: 16px;"></i> Step 7: Decryption Mathematical Trace
               </div>
               <div class="math-row">
@@ -383,87 +352,51 @@
               <span id="badge-multi-valid" class="status-pill info">Multi-Key Mode</span>
             </label>
             <div class="input-wrapper">
-              <input type="text" id="input-message-multi" class="cyber-input" value="4, 12, 65, 88, 114" />
+              <input type="text" id="input-message-multi" class="cyber-input"
+                placeholder="Enter key numbers separated by comma or space (e.g. 15, 28, 92)" />
             </div>
             <span style="font-size: 0.75rem; color: var(--text-muted);">
-              Each plaintext key number must be an integer strictly less than modulus $n = <span id="label-multi-n-limit">143</span>$.
+              Each plaintext key number must be an integer strictly less than modulus n = <span
+                id="label-multi-n-limit">—</span>.
             </span>
           </div>
 
-          <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
             <button class="btn btn-secondary btn-sm multi-preset-btn" data-nums="4, 12, 65">Keys: 4, 12, 65</button>
-            <button class="btn btn-secondary btn-sm multi-preset-btn" data-nums="15, 28, 92, 114">Keys: 15, 28, 92, 114</button>
-            <button class="btn btn-secondary btn-sm multi-preset-btn" data-nums="7, 49, 73, 108">Keys: 7, 49, 73, 108</button>
+            <button class="btn btn-secondary btn-sm multi-preset-btn" data-nums="15, 28, 92, 114">Keys: 15, 28, 92,
+              114</button>
+            <button class="btn btn-secondary btn-sm multi-preset-btn" data-nums="7, 49, 73, 108">Keys: 7, 49, 73,
+              108</button>
+          </div>
+
+          <!-- Multi-Key Action Buttons -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
+            <button id="btn-encrypt-multi" class="btn btn-primary">
+              <i data-lucide="lock" style="width: 16px;"></i> 1. Encrypt Sequence
+            </button>
+            <button id="btn-decrypt-multi" class="btn btn-emerald" disabled>
+              <i data-lucide="unlock" style="width: 16px;"></i> 2. Decrypt Sequence
+            </button>
           </div>
 
           <!-- Encrypted Payload & Recovered Sequence -->
           <div class="grid-2col" style="margin-bottom: 1.5rem;">
             <div class="math-display-box">
-              <div style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.5rem;">Encrypted Cipher Numbers Array [C]</div>
-              <div id="multi-ciphertext-array" style="word-break: break-all; color: var(--accent-amber); font-size: 0.9rem;">
+              <div style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.5rem;">Encrypted Cipher Numbers
+                Array [C]</div>
+              <div id="multi-ciphertext-array"
+                style="word-break: break-all; color: var(--accent-amber); font-size: 0.9rem;">
                 [ 49, 12, 65, 96, ... ]
               </div>
             </div>
             <div class="math-display-box">
-              <div style="font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.5rem;">Decrypted Recovered Key Numbers [M']</div>
-              <div id="multi-decrypted-output" style="word-break: break-all; color: var(--accent-emerald); font-size: 1.1rem; font-weight: 700;">
+              <div style="font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.5rem;">Decrypted Recovered
+                Key Numbers [M']</div>
+              <div id="multi-decrypted-output"
+                style="word-break: break-all; color: var(--accent-emerald); font-size: 1.1rem; font-weight: 700;">
                 [ 4, 12, 65, 88, 114 ]
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Automated Verification Test Suite -->
-      <div class="glass-panel step-card" id="test-suite">
-        <div class="step-header">
-          <div class="step-title-group">
-            <span class="step-number-badge"><i data-lucide="shield-check" style="width: 14px;"></i></span>
-            <h2 class="step-title">Automated Verification Test Suite</h2>
-          </div>
-          <button id="btn-run-all-tests" class="btn btn-emerald btn-sm">
-            <i data-lucide="play" style="width: 14px;"></i> Run All Test Cases
-          </button>
-        </div>
-        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.25rem;">
-          Click any test case to load its prime parameters and verify the numeric plaintext key distribution and decryption integrity.
-        </p>
-
-        <div class="test-suite-grid">
-          <div class="test-card" data-test="1">
-            <div class="test-card-header">
-              <span class="test-card-title">Test 1: Small Primes</span>
-              <span class="status-pill success" id="test-badge-1">Ready</span>
-            </div>
-            <p class="test-card-desc">p = 11, q = 13, e = 17, Key M = 4</p>
-            <div style="font-size: 0.75rem; color: var(--accent-cyan);">Click to Load & Test ➔</div>
-          </div>
-
-          <div class="test-card" data-test="2">
-            <div class="test-card-header">
-              <span class="test-card-title">Test 2: Classic Textbook</span>
-              <span class="status-pill success" id="test-badge-2">Ready</span>
-            </div>
-            <p class="test-card-desc">p = 61, q = 53, e = 17, Key M = 65</p>
-            <div style="font-size: 0.75rem; color: var(--accent-cyan);">Click to Load & Test ➔</div>
-          </div>
-
-          <div class="test-card" data-test="3">
-            <div class="test-card-header">
-              <span class="test-card-title">Test 3: Coprime Exponent e=7</span>
-              <span class="status-pill success" id="test-badge-3">Ready</span>
-            </div>
-            <p class="test-card-desc">p = 17, q = 19, e = 7, Key M = 88</p>
-            <div style="font-size: 0.75rem; color: var(--accent-cyan);">Click to Load & Test ➔</div>
-          </div>
-
-          <div class="test-card" data-test="4">
-            <div class="test-card-header">
-              <span class="test-card-title">Test 4: Multi-Key Numbers Sequence</span>
-              <span class="status-pill success" id="test-badge-4">Ready</span>
-            </div>
-            <p class="test-card-desc">p = 43, q = 47, e = 17, Keys: [15, 28, 92, 114]</p>
-            <div style="font-size: 0.75rem; color: var(--accent-cyan);">Click to Load & Test ➔</div>
           </div>
         </div>
       </div>
@@ -473,13 +406,34 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div>CRYPTOLAB RSA ASYMMETRIC KEY VIRTUAL LABORATORY</div>
-      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
-        Aim • Theory • Objective • Procedure • Simulation
+      <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+        <div class="logo-icon" style="width: 28px; height: 28px;">
+          <i data-lucide="shield-check" style="color: #fff; width: 16px; height: 16px;"></i>
+        </div>
+        <span class="logo-title" style="font-size: 1.1rem;">CRYPTOLAB</span>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; max-width: 600px; line-height: 1.5; margin: 0;">
+        Interactive Cryptography Virtual Laboratory. Designed for educational demonstration and visualization of
+        classical encryption algorithms.
+      </p>
+      <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; margin: 0.25rem 0;">
+        <a href="aim.html" class="footer-link">Aim</a>
+        <a href="theory.html" class="footer-link">Theory</a>
+        <a href="objective.html" class="footer-link">Objective</a>
+        <a href="procedure.html" class="footer-link">Procedure</a>
+        <a href="simulation.html" class="footer-link">Simulation</a>
+      </div>
+      <div
+        style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-subtle); padding-top: 0.85rem; width: 100%;">
+        <div style="margin-bottom: 0.25rem;">Algorithm: RSA Asymmetric Cipher | Academic Project</div>
+        <div style="color: var(--text-secondary);">Developed by <strong
+            style="color: var(--accent-cyan); font-weight: 700;">Sachidananda</strong> and <strong
+            style="color: var(--accent-cyan); font-weight: 700;">Ravikumar</strong></div>
       </div>
     </div>
   </footer>
 
   <div id="toast-container"></div>
 </body>
+
 </html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='18' height='11' x='3' y='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>References — RSA Asymmetric Cryptography Virtual Laboratory</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="aim.html" class="logo-brand">
+        <div class="logo-icon">
+          <i data-lucide="shield-check" style="color: #fff; width: 22px; height: 22px;"></i>
+        </div>
+        <div>
+          <div class="logo-title">CRYPTOLAB</div>
+        </div>
+        <span class="badge-tag">RSA ASYMMETRIC LAB</span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="simulation.html" class="btn btn-primary btn-sm">
+          <i data-lucide="play" style="width: 14px;"></i> Launch Simulator
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Virtual Lab Layout -->
+  <div class="vlab-layout-wrapper">
+    <!-- Left Sidebar -->
+    <aside class="vlab-sidebar">
+      <div class="vlab-sidebar-title">Virtual Lab Sections</div>
+      <ul class="vlab-sidebar-menu">
+        <li>
+          <a href="aim.html" class="vlab-sidebar-link">
+            <i data-lucide="target" style="width: 18px;"></i> Aim
+          </a>
+        </li>
+        <li>
+          <a href="theory.html" class="vlab-sidebar-link">
+            <i data-lucide="book-open" style="width: 18px;"></i> Theory
+          </a>
+        </li>
+        <li>
+          <a href="objective.html" class="vlab-sidebar-link">
+            <i data-lucide="compass" style="width: 18px;"></i> Objective
+          </a>
+        </li>
+        <li>
+          <a href="procedure.html" class="vlab-sidebar-link">
+            <i data-lucide="list-ordered" style="width: 18px;"></i> Procedure
+          </a>
+        </li>
+        <li>
+          <a href="simulation.html" class="vlab-sidebar-link">
+            <i data-lucide="play-circle" style="width: 18px;"></i> Simulation
+          </a>
+        </li>
+        <li>
+          <a href="references.html" class="vlab-sidebar-link active">
+            <i data-lucide="book-marked" style="width: 18px;"></i> References
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="vlab-main-content">
+      <div class="hero-pill" style="margin-bottom: 1.5rem;">
+        <span class="pulse-dot"></span>
+        <span>ACADEMIC BIBLIOGRAPHY • RECOMMENDED TEXTBOOKS</span>
+      </div>
+
+      <div class="hero-section">
+        <h1 class="hero-title">Academic References &amp; Textbooks</h1>
+        <p class="hero-desc">
+          Authoritative academic textbooks referenced for the mathematical foundations, key generation protocol, and cryptographic verification of the RSA Asymmetric Cryptosystem.
+        </p>
+      </div>
+
+      <!-- Reference 01: William Stallings -->
+      <div class="ref-card">
+        <div class="ref-num-box">01</div>
+        <div class="ref-content">
+          <div class="ref-header-row">
+            <span class="ref-tag emerald">STANDARD TEXTBOOK</span>
+            <span class="ref-title-text">Cryptography and Network Security: Principles and Practice</span>
+          </div>
+          <div class="ref-meta">
+            <strong>Author:</strong> William Stallings
+          </div>
+          <div class="ref-submeta">
+            Pearson Education, 7th &amp; 8th Editions. Comprehensive reference for undergraduate and graduate computer science curricula.
+          </div>
+          <div class="ref-desc" style="margin-bottom: 0;">
+            Chapters on Prime Numbers and Modular Arithmetic (Chapter 2 &amp; 4) and Public-Key Cryptography &amp; RSA (Chapter 9). Detailed analysis of Euler's totient function, computational complexity of integer factorization, and RSA key distribution protocols.
+          </div>
+        </div>
+      </div>
+
+      <!-- Reference 02: Jonathan Katz & Yehuda Lindell -->
+      <div class="ref-card">
+        <div class="ref-num-box">02</div>
+        <div class="ref-content">
+          <div class="ref-header-row">
+            <span class="ref-tag blue">ACADEMIC TEXTBOOK</span>
+            <span class="ref-title-text">Introduction to Modern Cryptography</span>
+          </div>
+          <div class="ref-meta">
+            <strong>Authors:</strong> Jonathan Katz and Yehuda Lindell
+          </div>
+          <div class="ref-submeta">
+            CRC Press / Chapman &amp; Hall, 3rd Edition (2020).
+          </div>
+          <div class="ref-desc" style="margin-bottom: 0;">
+            Rigorous mathematical treatment of public-key cryptography, trapdoor permutations, the factoring and RSA assumptions, and formal security reductions against passive and active adversaries.
+          </div>
+        </div>
+      </div>
+
+      <!-- Reference 03: Douglas R. Stinson & Maura B. Paterson -->
+      <div class="ref-card">
+        <div class="ref-num-box">03</div>
+        <div class="ref-content">
+          <div class="ref-header-row">
+            <span class="ref-tag purple">THEORY &amp; PRACTICE</span>
+            <span class="ref-title-text">Cryptography: Theory and Practice</span>
+          </div>
+          <div class="ref-meta">
+            <strong>Authors:</strong> Douglas R. Stinson and Maura B. Paterson
+          </div>
+          <div class="ref-submeta">
+            CRC Press, 4th Edition (2018).
+          </div>
+          <div class="ref-desc" style="margin-bottom: 0;">
+            In-depth computational algorithms including the Extended Euclidean Algorithm for modular inverse, fast square-and-multiply exponentiation, and Chinese Remainder Theorem (CRT) optimizations.
+          </div>
+        </div>
+      </div>
+
+      <!-- Reference 04: Behrouz A. Forouzan & Debdeep Mukhopadhyay -->
+      <div class="ref-card">
+        <div class="ref-num-box">04</div>
+        <div class="ref-content">
+          <div class="ref-header-row">
+            <span class="ref-tag amber">APPLIED TEXTBOOK</span>
+            <span class="ref-title-text">Cryptography and Network Security</span>
+          </div>
+          <div class="ref-meta">
+            <strong>Authors:</strong> Behrouz A. Forouzan and Debdeep Mukhopadhyay
+          </div>
+          <div class="ref-submeta">
+            McGraw-Hill Education, 3rd Edition (2015).
+          </div>
+          <div class="ref-desc" style="margin-bottom: 0;">
+            Standard university textbook providing step-by-step numerical examples of RSA encryption, modular exponentiation, prime candidate selection, and asymmetric key exchange architectures.
+          </div>
+        </div>
+      </div>
+
+      <!-- Reference 05: Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone -->
+      <div class="ref-card">
+        <div class="ref-num-box">05</div>
+        <div class="ref-content">
+          <div class="ref-header-row">
+            <span class="ref-tag emerald">OPEN ACCESS HANDBOOK</span>
+            <span class="ref-title-text">Handbook of Applied Cryptography</span>
+          </div>
+          <div class="ref-meta">
+            <strong>Authors:</strong> Alfred J. Menezes, Paul C. van Oorschot, and Scott A. Vanstone
+          </div>
+          <div class="ref-submeta">
+            CRC Press (1996) — Available Freely Online via University of Waterloo.
+          </div>
+          <div class="ref-desc">
+            The canonical reference handbook detailing exact algorithms for integer factorization, primality testing, public-key infrastructure, and asymmetric cipher security parameters.
+          </div>
+          <a href="https://cacr.uwaterloo.ca/hac/" target="_blank" rel="noopener noreferrer" class="ref-link-btn">
+            <i data-lucide="link" style="width: 14px;"></i> Official Open-Access Edition &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <a href="simulation.html" class="btn btn-secondary">
+          <i data-lucide="arrow-left" style="width: 16px;"></i> Previous: Simulation
+        </a>
+        <a href="aim.html" class="btn btn-primary">
+          <i data-lucide="rotate-ccw" style="width: 16px;"></i> Return to Aim
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p style="font-weight: 600; color: var(--text-primary);">
+        RSA Asymmetric Cryptography • Interactive Virtual Laboratory
+      </p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+        <a href="aim.html" class="footer-link">Aim</a>
+        <a href="theory.html" class="footer-link">Theory</a>
+        <a href="objective.html" class="footer-link">Objective</a>
+        <a href="procedure.html" class="footer-link">Procedure</a>
+        <a href="simulation.html" class="footer-link">Simulation</a>
+        <a href="references.html" class="footer-link">References</a>
+      </div>
+      <div
+        style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border-subtle); padding-top: 0.85rem; width: 100%;">
+        <div style="margin-bottom: 0.25rem;">Algorithm: RSA Asymmetric Cipher | Academic Project</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { createIcons, icons } from 'lucide';
+    document.addEventListener('DOMContentLoaded', () => {
+      createIcons({ icons });
+    });
+  </script>
+</body>
+
+</html>
